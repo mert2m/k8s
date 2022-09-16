@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubefirst-demo
+  labels:
+    mert: polat
+spec:
+  containers:
+  - name: kubefirst-demo-container
+    image: mertpolatt/kubefirst:v1
+    ports:
+    - containerPort: 8080
+    env:
+    - name: portname
+      value: "8080"
+

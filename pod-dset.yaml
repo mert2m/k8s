@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: pod-dset
+  labels:
+    app: pod-dset
+spec:
+  selector:
+    matchLabels:
+      name: kubefirst-demo
+  template:
+    metadata:
+      labels:
+        name: kubefirst-demo
+    spec:
+      containers:
+      - name: kube-dset
+        image: mertpolatt/kubefirst:v1
+

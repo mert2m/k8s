@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: pod-rs
+  labels:
+    app: pod-rs
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: kubefirst-demo
+      labels:
+        app: kubefirst-demo
+    spec:
+      containers:
+        - name: kubefirst-rs
+          image: mertpolatt/kubefirst:v1
+  selector:
+    matchLabels:
+      app: kubefirst-demo
+

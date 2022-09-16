@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-deploy
+  labels:
+    app: pod-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: pod-deploy
+      app: pod-deploy
+  template:    
+    metadata:
+      name: pod
+      labels:
+        name: pod-deploy
+        app: pod-deploy
+    spec:
+      containers:
+      - name: pod-deploy
+        image: mertpolatt/kubefirst:v1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: portname
+          value: "8080"
+
